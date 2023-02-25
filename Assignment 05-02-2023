@@ -1,0 +1,305 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "d60d310b-4c1b-47d5-a946-0d65f8dd1b0f",
+   "metadata": {},
+   "source": [
+    "Q1. Explain Class and Object with respect to Object-Oriented Programming. Give a suitable example.\n",
+    "\n",
+    "Answer: A class is a blueprint or template for creating objects in object-oriented programming. On the other hand, an object is a specific instance of a class. Its behaviour is defined by its attributes (data) and methods (functions)."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "dfbaf1ad-c284-4a41-a505-207fc0e5e97d",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "('nano', 101, 'WB199')"
+      ]
+     },
+     "execution_count": 6,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#From Q1 above\n",
+    "class cars:\n",
+    "    def __init__(self, name, model, number):\n",
+    "        self.name = name\n",
+    "        self.model = model\n",
+    "        self.number = number\n",
+    "    def car_specs(self):\n",
+    "        return self.name, self.model, self.number\n",
+    "\n",
+    "tata = cars('nano', 101, 'WB199')\n",
+    "tata.car_specs()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c317e0e3-be90-46a1-a190-b5bb02aa7127",
+   "metadata": {},
+   "source": [
+    "Q2. Name the four pillars of OOPs.\n",
+    "\n",
+    "Answer: There are four fundamental pillars:\n",
+    "\n",
+    "Encapsulation: This is the process of combining related information and actions into a single class. Data that has been encapsulated is better protected from external manipulation and can be used and modified with greater control.\n",
+    "\n",
+    "Inheritance: The ability to create new classes that are based on older classes is known as inheritance. As a result, it is possible for new classes to inherit attributes and functions from their parent classes, which can speed up development and lessen code duplication.\n",
+    "\n",
+    "Polymorphism: The term \"polymorphism\" describes an object's capacity to assume various forms. This is typically accomplished in OOP through the use of method overriding and inheritance. Code can be more flexible and adaptable thanks to polymorphism.\n",
+    "\n",
+    "Abstraction: The process of breaking down complex systems into smaller, more manageable components in order to make them simpler is referred to as abstraction. This is typically accomplished in OOP through the use of interfaces and abstract classes, which specify a set of methods that any class using them must implement. Code reusability and complexity are both improved by abstraction."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "4b5d8b68-d4ca-4988-b82a-3043c872ab6d",
+   "metadata": {},
+   "source": [
+    "Q3. Explain why the __init__() function is used. Give a suitable example.\n",
+    "\n",
+    "Answer: The __init__() function is used as a constructor method for a class. It is called when an instance of the class is created and is used to initialize the instance's attributes. The __init__() method can take any number of arguments, but the first argument should always be self, which refers to the instance of the class being created."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "id": "7c9b17a7-9bfb-468f-92c6-386ac6a05827",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "('avik', 1996)"
+      ]
+     },
+     "execution_count": 9,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#From Q3 above\n",
+    "class birthday:\n",
+    "    def __init__(self, name, dob):\n",
+    "        self.name = name\n",
+    "        self.dob = dob\n",
+    "    def give_birthday(self):\n",
+    "        return self.name, self.dob\n",
+    "\n",
+    "avik = birthday('avik', 1996)\n",
+    "avik.give_birthday()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "e5e89446-7e1c-4484-9040-c8c23397c7a2",
+   "metadata": {},
+   "source": [
+    "Q4. Why self is used in OOPs?\n",
+    "\n",
+    "Answer: In object-oriented programming (OOP), the term \"self\" refers to a class instance. Within the class definition, it is used to gain access to the instance's attributes and methods. Although, using 'self' is an accepted convention, it is not a rule, we can use any other term to replace 'self' (except or names of in-built functions). "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "68e12313-fea4-4332-b0da-b2fe96caced5",
+   "metadata": {},
+   "source": [
+    "Q5. What is inheritance? Give an example for each type of inheritance.\n",
+    "\n",
+    "Answer: In object-oriented programming, inheritance is a mechanism that allows a new class to be created by inheriting the properties and methods of an existing class. The new class is referred to as the subclass, and the existing class is referred to as the superclass. Inheritance allows the subclass to reuse the code of the superclass and also extend or modify its behaviour."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "id": "188f1b97-5fd8-47f2-9e0f-0f051521869e",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Buddy\n",
+      "Woof!\n"
+     ]
+    }
+   ],
+   "source": [
+    "#From Q5 above\n",
+    "#Single Inheritance\n",
+    "class Animal:\n",
+    "    def __init__(self, name):\n",
+    "        self.name = name\n",
+    "\n",
+    "    def sound(self):\n",
+    "        pass\n",
+    "\n",
+    "class Dog(Animal):\n",
+    "    def sound(self):\n",
+    "        return \"Woof!\"\n",
+    "\n",
+    "my_dog = Dog(\"Buddy\")\n",
+    "print(my_dog.name)\n",
+    "print(my_dog.sound())"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "id": "c11a4b20-d89d-4fcc-a0f9-5fb54a932b8c",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Method A\n",
+      "Method B\n",
+      "Method C\n"
+     ]
+    }
+   ],
+   "source": [
+    "#From Q5 above\n",
+    "#Multiple Inheritance\n",
+    "class A:\n",
+    "    def a_method(self):\n",
+    "        return \"Method A\"\n",
+    "\n",
+    "class B:\n",
+    "    def b_method(self):\n",
+    "        return \"Method B\"\n",
+    "\n",
+    "class C(A, B):\n",
+    "    def c_method(self):\n",
+    "        return \"Method C\"\n",
+    "\n",
+    "my_obj = C()\n",
+    "print(my_obj.a_method())\n",
+    "print(my_obj.b_method())\n",
+    "print(my_obj.c_method())\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "id": "f4fbc3b7-4671-40c5-822b-01799cf19178",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Buddy\n",
+      "Woof!\n"
+     ]
+    }
+   ],
+   "source": [
+    "#From Q5 above\n",
+    "#Multi-level Inheritance\n",
+    "class Animal:\n",
+    "    def __init__(self, name):\n",
+    "        self.name = name\n",
+    "\n",
+    "    def sound(self):\n",
+    "        pass\n",
+    "\n",
+    "class Mammal(Animal):\n",
+    "    def feed_young_with_milk(self):\n",
+    "        pass\n",
+    "\n",
+    "class Dog(Mammal):\n",
+    "    def sound(self):\n",
+    "        return \"Woof!\"\n",
+    "\n",
+    "my_dog = Dog(\"Buddy\")\n",
+    "print(my_dog.name)\n",
+    "print(my_dog.sound())"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "id": "0e21b9a2-b756-4fe0-ac09-fb7cbdcadc22",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Buddy\n",
+      "Woof!\n",
+      "Whiskers\n",
+      "Meow!\n"
+     ]
+    }
+   ],
+   "source": [
+    "#From Q5 above\n",
+    "#Hierarchical Inheritance\n",
+    "class Animal:\n",
+    "    def __init__(self, name):\n",
+    "        self.name = name\n",
+    "    def sound(self):\n",
+    "        pass\n",
+    "class Dog(Animal):\n",
+    "    def sound(self):\n",
+    "        return \"Woof!\"\n",
+    "\n",
+    "class Cat(Animal):\n",
+    "    def sound(self):\n",
+    "        return \"Meow!\"\n",
+    "\n",
+    "my_dog = Dog('Buddy')\n",
+    "my_cat = Cat('Whiskers')\n",
+    "\n",
+    "print(my_dog.name)\n",
+    "print(my_dog.sound())\n",
+    "\n",
+    "print(my_cat.name)\n",
+    "print(my_cat.sound())"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "fcbf5728-b720-4b54-b71e-cb909d616f3b",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.10.8"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
